@@ -38,4 +38,12 @@ class WordStoreTest {
         WordStoreImpl wordStore = new WordStoreImpl(expected);
         assertEquals(3, wordStore.count("word"));
     }
+
+    @Test
+    void returnZeroCountForMissingWord() {
+        Map<String, Integer> expected = new HashMap<>();
+
+        WordStoreImpl wordStore = new WordStoreImpl(expected);
+        assertEquals(0, wordStore.count("word"));
+    }
 }
