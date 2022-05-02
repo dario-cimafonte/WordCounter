@@ -50,4 +50,10 @@ class WordCounterTest {
     void blankWordIsRejected(String illegal) {
         assertThrows(IllegalArgumentException.class, () -> wordCounter.add(illegal));
     }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"illegal1", "this&that"})
+    void nonAlphaStringIsRejected(String illegal) {
+        assertThrows(IllegalArgumentException.class, () -> wordCounter.add(illegal));
+    }
 }

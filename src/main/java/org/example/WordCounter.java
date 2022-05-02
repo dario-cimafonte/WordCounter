@@ -13,10 +13,19 @@ public class WordCounter {
     }
 
     public void add(String word) {
-        if (word == null || word.trim().length() == 0) {
+        String trimmedWord = word == null ? "" : word.trim();
+        if (trimmedWord.length() == 0) {
             throw new IllegalArgumentException("a word is required");
         }
+        boolean isAlpha = isAlpha(trimmedWord);
+        if (!isAlpha) {
+            throw new IllegalArgumentException("illegal non-alphabetic characters");
+        }
         wordStore.save(translator.translate(word));
+    }
+
+    private boolean isAlpha(String s) {
+        return s.chars().allMatch(Character::isAlphabetic);
     }
 
     public int count(String word) {
