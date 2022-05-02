@@ -17,8 +17,7 @@ public class WordCounter {
         if (trimmedWord.length() == 0) {
             throw new IllegalArgumentException("a word is required");
         }
-        boolean isAlpha = isAlpha(trimmedWord);
-        if (!isAlpha) {
+        if (!isAlpha(trimmedWord)) {
             throw new IllegalArgumentException("illegal non-alphabetic characters");
         }
         wordStore.save(translator.translate(word));
@@ -29,6 +28,6 @@ public class WordCounter {
     }
 
     public int count(String word) {
-        return -1;
+        return wordStore.count(word);
     }
 }

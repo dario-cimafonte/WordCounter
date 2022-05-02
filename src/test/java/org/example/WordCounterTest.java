@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -55,5 +56,11 @@ class WordCounterTest {
     @ValueSource(strings = {"illegal1", "this&that"})
     void nonAlphaStringIsRejected(String illegal) {
         assertThrows(IllegalArgumentException.class, () -> wordCounter.add(illegal));
+    }
+
+    @Test
+    void canCountWords() {
+        doReturn(3).when(wordStore).count("flower");
+        assertEquals(3, wordCounter.count("flower"));
     }
 }
