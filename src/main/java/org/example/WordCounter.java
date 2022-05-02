@@ -28,6 +28,6 @@ public class WordCounter {
     }
 
     public int count(String word) {
-        return wordStore.count(word);
+        return wordStore.count(translator.translate(word));
     }
 }

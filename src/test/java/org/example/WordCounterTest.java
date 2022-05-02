@@ -63,4 +63,11 @@ class WordCounterTest {
         doReturn(3).when(wordStore).count("flower");
         assertEquals(3, wordCounter.count("flower"));
     }
+
+    @Test
+    void canCountWordsInTranslation() {
+        doReturn("flower").when(translator).translate("flor");
+        doReturn(3).when(wordStore).count("flower");
+        assertEquals(3, wordCounter.count("flor"));
+    }
 }
