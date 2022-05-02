@@ -13,6 +13,9 @@ public class WordCounter {
     }
 
     public void add(String word) {
+        if (word == null || word.trim().length() == 0) {
+            throw new IllegalArgumentException("a word is required");
+        }
         wordStore.save(translator.translate(word));
     }
 
