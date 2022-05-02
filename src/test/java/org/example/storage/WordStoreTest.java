@@ -19,4 +19,14 @@ class WordStoreTest {
 
         assertEquals(4, wordStore.getWordCount().get("word"));
     }
+
+    @Test
+    void storeAWordForTheFirstTime() {
+        Map<String, Integer> expected = new HashMap<>();
+
+        WordStoreImpl wordStore = new WordStoreImpl(expected);
+        wordStore.save("word");
+
+        assertEquals(1, wordStore.getWordCount().get("word"));
+    }
 }
