@@ -13,7 +13,7 @@ public class WordCounter {
     }
 
     public void add(String word) {
-        wordStore.save(word);
+        wordStore.save(translator.translate(word));
     }
 
     public int count(String word) {
