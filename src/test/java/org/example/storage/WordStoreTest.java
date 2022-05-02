@@ -29,4 +29,13 @@ class WordStoreTest {
 
         assertEquals(1, wordStore.getWordCount().get("word"));
     }
+
+    @Test
+    void retrieveWordCount() {
+        Map<String, Integer> expected = new HashMap<>();
+        expected.put("word", 3);
+
+        WordStoreImpl wordStore = new WordStoreImpl(expected);
+        assertEquals(3, wordStore.count("word"));
+    }
 }

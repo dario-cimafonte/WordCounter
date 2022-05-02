@@ -22,7 +22,7 @@ public class WordStoreImpl implements WordStore {
 
     @Override
     public int count(String word) {
-        return 0;
+        return wordCount.get(word);
     }
 
     Map<String, Integer> getWordCount() {
